@@ -207,7 +207,7 @@ export default function App() {
 
       {/* Cursor glow */}
       <motion.div
-        className="fixed pointer-events-none z-[100] rounded-full mix-blend-screen"
+        className="fixed pointer-events-none z-0 rounded-full"
         style={{
           width: 320,
           height: 320,
@@ -359,7 +359,7 @@ export default function App() {
                     </p>
                   </div>
 
-                  <h1 className="syne text-6xl md:text-8xl font-bold leading-[1.05] mb-6">
+                  <h1 className="syne text-5xl sm:text-6x1 md:text-8xl font-bold leading-[1.05] mb-6">
                     Hi, {name}.
                     <br />
                     <span className="text-white/25">I build things</span>
