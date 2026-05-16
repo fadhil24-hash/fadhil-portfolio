@@ -265,17 +265,17 @@ export default function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.7 }}
-            className="min-h-screen flex items-center justify-center px-6"
+            className="relative z-50 min-h-screen flex items-center justify-center px-6"
           >
             <div className="relative z-[200] max-w-xl w-full text-center">
               {/* Decorative ring */}
               <motion.div
-                className="absolute -inset-20 rounded-full border border-white/5"
+                className="absolute -inset-20 rounded-full border border-white/5 pointer-events-none"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
               />
               <motion.div
-                className="absolute -inset-10 rounded-full border border-white/5"
+                className="absolute -inset-10 rounded-full border border-white/5 pointer-events-none"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               />
@@ -432,7 +432,9 @@ export default function App() {
                       </a>
                     ))}
                     {/* Photo */}
-<motion.div
+                  </div>
+                </motion.div>
+                <motion.div
   initial={{ opacity: 0, scale: 0.9 }}
   animate={{ opacity: 1, scale: 1 }}
   transition={{ duration: 1 }}
@@ -454,8 +456,6 @@ export default function App() {
     </div>
   </div>
 </motion.div>
-                  </div>
-                </motion.div>
 
                 {/* Scroll hint */}
                 <motion.div
