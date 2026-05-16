@@ -174,6 +174,7 @@ export default function App() {
   const [name, setName] = useState("");
   const [entered, setEntered] = useState(false);
   const [activeNav, setActiveNav] = useState("about");
+  const [isDesktop, setIsDesktop] = useState(false);
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -181,7 +182,17 @@ export default function App() {
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
   }, []);
+  useEffect(() => {
+  const checkScreen = () => {
+    setIsDesktop(window.innerWidth > 768);
+  };
 
+  checkScreen();
+
+  window.addEventListener("resize", checkScreen);
+
+  return () => window.removeEventListener("resize", checkScreen);
+}, []);
   const handleEnter = () => {
     if (name.trim()) setEntered(true);
   };
@@ -205,8 +216,8 @@ export default function App() {
         .syne { font-family: 'Syne', sans-serif; }
       `}</style>
 
-      {/* Cursor glow - desktop only */}
-{window.innerWidth > 768 && (
+     {/* Cursor glow - desktop only */}
+{isDesktop && (
   <motion.div
     className="fixed pointer-events-none z-0 rounded-full"
     style={{
