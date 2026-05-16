@@ -245,7 +245,7 @@ export default function App() {
             transition={{ duration: 0.7 }}
             className="min-h-screen flex items-center justify-center px-6"
           >
-            <div className="relative z-10 max-w-xl w-full text-center">
+            <div className="relative z-[200] max-w-xl w-full text-center">
               {/* Decorative ring */}
               <motion.div
                 className="absolute -inset-20 rounded-full border border-white/5"
@@ -298,6 +298,7 @@ export default function App() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   onKeyDown={handleKeyDown}
+                  style={{ touchAction: "manipulation" }}
                   className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none text-white placeholder-white/20 focus:border-indigo-500/50 focus:bg-white/8 transition-colors text-sm"
                 />
                 <button
