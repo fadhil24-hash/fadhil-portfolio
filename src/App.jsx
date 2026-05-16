@@ -205,19 +205,30 @@ export default function App() {
         .syne { font-family: 'Syne', sans-serif; }
       `}</style>
 
-      {/* Cursor glow */}
-      <motion.div
-        className="fixed pointer-events-none z-0 rounded-full"
-        style={{
-          width: 320,
-          height: 320,
-          background: "radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)",
-          top: mousePos.y - 160,
-          left: mousePos.x - 160,
-        }}
-        animate={{ top: mousePos.y - 160, left: mousePos.x - 160 }}
-        transition={{ type: "spring", stiffness: 80, damping: 25, mass: 0.5 }}
-      />
+      {/* Cursor glow - desktop only */}
+{window.innerWidth > 768 && (
+  <motion.div
+    className="fixed pointer-events-none z-0 rounded-full"
+    style={{
+      width: 320,
+      height: 320,
+      background:
+        "radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)",
+      top: mousePos.y - 160,
+      left: mousePos.x - 160,
+    }}
+    animate={{
+      top: mousePos.y - 160,
+      left: mousePos.x - 160,
+    }}
+    transition={{
+      type: "spring",
+      stiffness: 80,
+      damping: 25,
+      mass: 0.5,
+    }}
+  />
+)}
 
       {/* Static ambient blobs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
